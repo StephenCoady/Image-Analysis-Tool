@@ -210,6 +210,11 @@ public class ConnectedComponentImage implements ComponentImage
 	{
 		this.threshhold = threshhold;
 	}
+	
+	public int getThreshhold() 
+	{
+		return threshhold;
+	}
 
 	/**
 	 * Returns a picture with each object updated to a random colour.
