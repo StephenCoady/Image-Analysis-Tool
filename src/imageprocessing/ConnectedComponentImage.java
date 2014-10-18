@@ -89,14 +89,7 @@ public class ConnectedComponentImage implements ComponentImage
 
 	public int countComponents() 
 	{
-		double startTime = System.currentTimeMillis();
 		WeightedQuickUnionUF wqu = checkUnion(binaryComponentImage());
-
-
-		double endTime = System.currentTimeMillis();
-		double totalTime = endTime - startTime;
-		//StdOut.println("Counting components took " + totalTime/1000 + " seconds.");
-
 		return wqu.count()-1; // -1 allows for the background root
 	}
 
@@ -126,8 +119,6 @@ public class ConnectedComponentImage implements ComponentImage
 	{
 		Picture binaryPic = new Picture(binaryComponentImage());
 		WeightedQuickUnionUF wqf = checkUnion(binaryPic);
-
-		double startTime = System.currentTimeMillis();
 
 		Picture pic = new Picture(this.fileLocation);
 		ArrayList<Component> components = new ArrayList<Component>();
@@ -196,9 +187,6 @@ public class ConnectedComponentImage implements ComponentImage
 				pic.set(x, y, Color.RED);
 			}
 		}
-		double endTime = System.currentTimeMillis();
-		double totalTime = endTime - startTime;
-		//StdOut.println("Components took " + totalTime/1000 + " seconds.");
 		return pic;
 	}
 
@@ -228,9 +216,7 @@ public class ConnectedComponentImage implements ComponentImage
 
 		Picture pic = binaryComponentImage();
 		WeightedQuickUnionUF wqu = checkUnion(pic);
-
-		double startTime = System.currentTimeMillis();
-
+		
 		ArrayList<Integer> roots = new ArrayList <Integer>();
 		int width = pic.width();
 		int height = pic.height();
@@ -270,9 +256,6 @@ public class ConnectedComponentImage implements ComponentImage
 				}
 			}
 		}
-		double endTime = System.currentTimeMillis();
-		double totalTime = endTime - startTime;
-		//StdOut.println("Randomising colour took " + totalTime/1000 + " seconds.");
 		return pic;
 
 	}
@@ -287,8 +270,7 @@ public class ConnectedComponentImage implements ComponentImage
 	{
 		Picture pic = new Picture(greyScale()); 
 
-		double startTime = System.currentTimeMillis();
-
+		
 		int width = pic.width();
 		int height = pic.height();
 		// convert to binary
@@ -309,9 +291,6 @@ public class ConnectedComponentImage implements ComponentImage
 			}
 		}
 
-		double endTime = System.currentTimeMillis();
-		double totalTime = endTime - startTime;
-		//StdOut.println("Binarising took " + totalTime/1000 + " seconds.");
 		return pic;
 	}
 
@@ -324,11 +303,10 @@ public class ConnectedComponentImage implements ComponentImage
 
 	public Picture greyScale()
 	{
-		double startTime = System.currentTimeMillis();
 		Picture pic = new Picture(fileLocation); 
 		int width = pic.width();
 		int height = pic.height();
-		// convert to grayscale
+		
 		for (int x = 0; x < width; x++) 
 		{
 			for (int y = 0; y < height; y++) 
@@ -338,10 +316,6 @@ public class ConnectedComponentImage implements ComponentImage
 				pic.set(x, y, gray);
 			} 
 		}
-
-		double endTime = System.currentTimeMillis();
-		double totalTime = endTime - startTime;
-		//StdOut.println("GreyScaling took " + totalTime/1000 + " seconds.");
 		return pic;
 	}
 
