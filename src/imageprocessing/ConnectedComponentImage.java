@@ -29,8 +29,6 @@ public class ConnectedComponentImage implements ComponentImage
 	private int width;
 	private int height;
 
-
-
 	/**
 	 * Initialise fields
 	 * 
