@@ -2,15 +2,22 @@ package imageprocessing;
 
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 import edu.princeton.cs.introcs.Picture;
 import edu.princeton.cs.introcs.StdOut;
+
+
+
 
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+
+import com.github.sarxos.webcam.Webcam;
 
 /*************************************************************************
  * Compilation: javac ConnectedComponentImage.java
@@ -316,5 +323,4 @@ public class ConnectedComponentImage implements ComponentImage
 		}
 		return pic;
 	}
-
 }
