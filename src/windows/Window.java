@@ -134,12 +134,19 @@ public class Window {
 	private JLayeredPane layeredPane_6;
 	private JPanel panel_7;
 	private JTextPane txtpnThisProgramCan;
+	private JLayeredPane layeredPane_7;
+	private JLayeredPane layeredPane_8;
+	private JTextPane txtpnCaptureWebcamImage;
+	private JButton btnCapture;
+	private JPanel panel_8;
+	private JButton button_1;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+		EventQueue.invokeLater(new Runnable()
+		{
 			public void run() {
 				try {
 					Window window = new Window();
@@ -650,6 +657,82 @@ public class Window {
 				});
 				layeredPane_5.add(btnPopOutImage_2, "4, 8, center, default");
 				
+				layeredPane_7 = new JLayeredPane();
+				tabbedPane.addTab("Web Cam", null, layeredPane_7, null);
+				
+				layeredPane_8 = new JLayeredPane();
+				layeredPane_8.setBackground(Color.LIGHT_GRAY);
+				layeredPane_8.setBounds(6, 6, 690, 571);
+				layeredPane_7.add(layeredPane_8);
+				GridBagLayout gbl_layeredPane_8 = new GridBagLayout();
+				gbl_layeredPane_8.columnWidths = new int[]{117, 182, 0, 0};
+				gbl_layeredPane_8.rowHeights = new int[]{37, 63, 310, 0, 0};
+				gbl_layeredPane_8.columnWeights = new double[]{0.0, 1.0, 1.0, Double.MIN_VALUE};
+				gbl_layeredPane_8.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+				layeredPane_8.setLayout(gbl_layeredPane_8);
+				
+				txtpnCaptureWebcamImage = new JTextPane();
+				txtpnCaptureWebcamImage.setText("Capture Webcam Image");
+				txtpnCaptureWebcamImage.setBackground(SystemColor.window);
+				GridBagConstraints gbc_txtpnCaptureWebcamImage = new GridBagConstraints();
+				gbc_txtpnCaptureWebcamImage.fill = GridBagConstraints.VERTICAL;
+				gbc_txtpnCaptureWebcamImage.insets = new Insets(0, 0, 5, 5);
+				gbc_txtpnCaptureWebcamImage.gridx = 1;
+				gbc_txtpnCaptureWebcamImage.gridy = 0;
+				layeredPane_8.add(txtpnCaptureWebcamImage, gbc_txtpnCaptureWebcamImage);
+				
+				btnCapture = new JButton("Capture");
+				btnCapture.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) 
+					{
+						ConnectedComponentImage component = new ConnectedComponentImage(filePath);
+						BufferedImage captured = component.webCam();
+						File outputfile = new File("saved.png");
+					    try {
+							ImageIO.write(captured, "png", outputfile);
+						} catch (IOException e2) {
+							e2.printStackTrace();
+						}
+						try {
+							runCapture();
+							panel_8.revalidate();
+							panel_8.repaint();
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						}
+					}
+				});
+				GridBagConstraints gbc_btnCapture = new GridBagConstraints();
+				gbc_btnCapture.insets = new Insets(0, 0, 5, 5);
+				gbc_btnCapture.gridx = 1;
+				gbc_btnCapture.gridy = 1;
+				layeredPane_8.add(btnCapture, gbc_btnCapture);
+				
+				panel_8 = new JPanel();
+				panel_8.setBackground(SystemColor.window);
+				GridBagConstraints gbc_panel_8 = new GridBagConstraints();
+				gbc_panel_8.fill = GridBagConstraints.BOTH;
+				gbc_panel_8.insets = new Insets(0, 0, 5, 5);
+				gbc_panel_8.gridx = 1;
+				gbc_panel_8.gridy = 2;
+				layeredPane_8.add(panel_8, gbc_panel_8);
+				
+				button_1 = new JButton("Pop Out Image");
+				button_1.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) 
+					{
+						Picture pic = new Picture("saved.png");
+						pic.show();
+					}
+				});
+				GridBagConstraints gbc_button_1 = new GridBagConstraints();
+				gbc_button_1.insets = new Insets(0, 0, 0, 5);
+				gbc_button_1.gridx = 1;
+				gbc_button_1.gridy = 3;
+				layeredPane_8.add(button_1, gbc_button_1);
+				
 				layeredPane_6 = new JLayeredPane();
 				tabbedPane.addTab("About", null, layeredPane_6, null);
 				layeredPane_6.setLayout(new GridLayout(1, 0, 0, 0));
@@ -755,6 +838,22 @@ public class Window {
 		{
 			panel_6.removeAll();
 			panel_6.add(boxedLabel);
+		}
+	}
+	
+	private void runCapture() throws IOException
+	{
+		BufferedImage capturedImage = ImageIO.read(new File("saved.png"));
+		BufferedImage capturedSmallImage = Scalr.resize(capturedImage, 420);
+		JLabel capturedLabel = new JLabel(new ImageIcon(capturedSmallImage));
+		if(panel_8.getComponents()==null)
+		{
+			panel_8.add(capturedLabel);
+		}
+		else
+		{
+			panel_8.removeAll();
+			panel_8.add(capturedLabel);
 		}
 	}
 }

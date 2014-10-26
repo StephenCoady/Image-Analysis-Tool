@@ -2,6 +2,8 @@ package imageprocessing;
 
 
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -12,10 +14,15 @@ import edu.princeton.cs.introcs.StdOut;
 
 
 
+
+
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+
+import javax.imageio.ImageIO;
 
 import com.github.sarxos.webcam.Webcam;
 
@@ -322,5 +329,12 @@ public class ConnectedComponentImage implements ComponentImage
 			} 
 		}
 		return pic;
+	}
+	
+	public BufferedImage webCam()
+	{
+		Webcam.setAutoOpenMode(true);
+		BufferedImage image = Webcam.getDefault().getImage();
+		return image;
 	}
 }
