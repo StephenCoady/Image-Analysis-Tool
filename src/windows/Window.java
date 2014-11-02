@@ -339,18 +339,18 @@ public class Window {
 		gbc_panel_4.gridx = 2;
 		gbc_panel_4.gridy = 3;
 		layeredPane_3.add(panel_4, gbc_panel_4);
-		
-				btnPopOut = new JButton("Pop Out Image");
-				btnPopOut.setBounds(236, 474, 136, 29);
-				layeredPane_2.add(btnPopOut);
-				btnPopOut.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) 
-					{
-						Picture pic = new Picture("greyImage.jpg");
-						pic.show();
-					}
-				});
+
+		btnPopOut = new JButton("Pop Out Image");
+		btnPopOut.setBounds(236, 474, 136, 29);
+		layeredPane_2.add(btnPopOut);
+		btnPopOut.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) 
+			{
+				Picture pic = new Picture("greyImage.jpg");
+				pic.show();
+			}
+		});
 
 		/*
 		 * Binary panes
@@ -447,21 +447,21 @@ public class Window {
 		gbc_panel_2.gridx = 2;
 		gbc_panel_2.gridy = 4;
 		layeredPane.add(panel_2, gbc_panel_2);
-						
-								btnPopOutImage = new JButton("Pop Out Image");
-								btnPopOutImage.addMouseListener(new MouseAdapter() {
-									@Override
-									public void mouseClicked(MouseEvent e) 
-									{
-										Picture pic = new Picture("binaryImage.jpg");
-										pic.show();
-									}
-								});
-								GridBagConstraints gbc_btnPopOutImage = new GridBagConstraints();
-								gbc_btnPopOutImage.insets = new Insets(0, 0, 5, 5);
-								gbc_btnPopOutImage.gridx = 2;
-								gbc_btnPopOutImage.gridy = 5;
-								layeredPane.add(btnPopOutImage, gbc_btnPopOutImage);
+
+		btnPopOutImage = new JButton("Pop Out Image");
+		btnPopOutImage.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) 
+			{
+				Picture pic = new Picture("binaryImage.jpg");
+				pic.show();
+			}
+		});
+		GridBagConstraints gbc_btnPopOutImage = new GridBagConstraints();
+		gbc_btnPopOutImage.insets = new Insets(0, 0, 5, 5);
+		gbc_btnPopOutImage.gridx = 2;
+		gbc_btnPopOutImage.gridy = 5;
+		layeredPane.add(btnPopOutImage, gbc_btnPopOutImage);
 
 		/*
 		 * Counts components
@@ -576,20 +576,20 @@ public class Window {
 		gbc_panel_5.gridx = 1;
 		gbc_panel_5.gridy = 2;
 		layeredPane_4.add(panel_5, gbc_panel_5);
-		
-				btnPopOutImage_1 = new JButton("Pop Out Image");
-				btnPopOutImage_1.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						Picture pic = new Picture("colourImage.jpg");
-						pic.show();
-					}
-				});
-				GridBagConstraints gbc_btnPopOutImage_1 = new GridBagConstraints();
-				gbc_btnPopOutImage_1.insets = new Insets(0, 0, 0, 5);
-				gbc_btnPopOutImage_1.gridx = 1;
-				gbc_btnPopOutImage_1.gridy = 3;
-				layeredPane_4.add(btnPopOutImage_1, gbc_btnPopOutImage_1);
+
+		btnPopOutImage_1 = new JButton("Pop Out Image");
+		btnPopOutImage_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Picture pic = new Picture("colourImage.jpg");
+				pic.show();
+			}
+		});
+		GridBagConstraints gbc_btnPopOutImage_1 = new GridBagConstraints();
+		gbc_btnPopOutImage_1.insets = new Insets(0, 0, 0, 5);
+		gbc_btnPopOutImage_1.gridx = 1;
+		gbc_btnPopOutImage_1.gridy = 3;
+		layeredPane_4.add(btnPopOutImage_1, gbc_btnPopOutImage_1);
 
 		/*
 		 * deals with boxing components
@@ -604,7 +604,7 @@ public class Window {
 				ColumnSpec.decode("max(110dlu;default):grow"),
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"),},
-			new RowSpec[] {
+				new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
@@ -641,111 +641,111 @@ public class Window {
 
 		panel_6 = new JPanel();
 		layeredPane_5.add(panel_6, "4, 6, fill, fill");
+
+		btnPopOutImage_2 = new JButton("Pop Out Image");
+		btnPopOutImage_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnPopOutImage_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) 
+			{
+				Picture pic = new Picture("boxedImage.jpg");
+				pic.show();
+			}
+		});
+		layeredPane_5.add(btnPopOutImage_2, "4, 8, center, default");
+
+		layeredPane_7 = new JLayeredPane();
+		tabbedPane.addTab("Web Cam", null, layeredPane_7, null);
+
+		layeredPane_8 = new JLayeredPane();
+		layeredPane_8.setBackground(Color.LIGHT_GRAY);
+		layeredPane_8.setBounds(6, 6, 690, 571);
+		layeredPane_7.add(layeredPane_8);
+		GridBagLayout gbl_layeredPane_8 = new GridBagLayout();
+		gbl_layeredPane_8.columnWidths = new int[]{117, 182, 0, 0};
+		gbl_layeredPane_8.rowHeights = new int[]{37, 63, 0, 310, 0, 0};
+		gbl_layeredPane_8.columnWeights = new double[]{0.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_layeredPane_8.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		layeredPane_8.setLayout(gbl_layeredPane_8);
+
+		txtpnCaptureWebcamImage = new JTextPane();
+		txtpnCaptureWebcamImage.setText("Capture Webcam Image");
+		txtpnCaptureWebcamImage.setBackground(SystemColor.window);
+		GridBagConstraints gbc_txtpnCaptureWebcamImage = new GridBagConstraints();
+		gbc_txtpnCaptureWebcamImage.fill = GridBagConstraints.VERTICAL;
+		gbc_txtpnCaptureWebcamImage.insets = new Insets(0, 0, 5, 5);
+		gbc_txtpnCaptureWebcamImage.gridx = 1;
+		gbc_txtpnCaptureWebcamImage.gridy = 0;
+		layeredPane_8.add(txtpnCaptureWebcamImage, gbc_txtpnCaptureWebcamImage);
+
+		btnCapture = new JButton("Capture");
+		btnCapture.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) 
+			{
+				ConnectedComponentImage component = new ConnectedComponentImage(filePath);
+					BufferedImage captured = component.webCam();
+					File outputfile = new File("saved.png");
+					try {
+						ImageIO.write(captured, "png", outputfile);
+					} catch (IOException e2) {
+						e2.printStackTrace();
+					}
+					try {
+						runCapture();
+						panel_8.revalidate();
+						panel_8.repaint();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+			}
+		});
+		GridBagConstraints gbc_btnCapture = new GridBagConstraints();
+		gbc_btnCapture.insets = new Insets(0, 0, 5, 5);
+		gbc_btnCapture.gridx = 1;
+		gbc_btnCapture.gridy = 1;
+		layeredPane_8.add(btnCapture, gbc_btnCapture);
 		
-				btnPopOutImage_2 = new JButton("Pop Out Image");
-				btnPopOutImage_2.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-					}
-				});
-				btnPopOutImage_2.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) 
-					{
-						Picture pic = new Picture("boxedImage.jpg");
-						pic.show();
-					}
-				});
-				layeredPane_5.add(btnPopOutImage_2, "4, 8, center, default");
-				
-				layeredPane_7 = new JLayeredPane();
-				tabbedPane.addTab("Web Cam", null, layeredPane_7, null);
-				
-				layeredPane_8 = new JLayeredPane();
-				layeredPane_8.setBackground(Color.LIGHT_GRAY);
-				layeredPane_8.setBounds(6, 6, 690, 571);
-				layeredPane_7.add(layeredPane_8);
-				GridBagLayout gbl_layeredPane_8 = new GridBagLayout();
-				gbl_layeredPane_8.columnWidths = new int[]{117, 182, 0, 0};
-				gbl_layeredPane_8.rowHeights = new int[]{37, 63, 310, 0, 0};
-				gbl_layeredPane_8.columnWeights = new double[]{0.0, 1.0, 1.0, Double.MIN_VALUE};
-				gbl_layeredPane_8.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-				layeredPane_8.setLayout(gbl_layeredPane_8);
-				
-				txtpnCaptureWebcamImage = new JTextPane();
-				txtpnCaptureWebcamImage.setText("Capture Webcam Image");
-				txtpnCaptureWebcamImage.setBackground(SystemColor.window);
-				GridBagConstraints gbc_txtpnCaptureWebcamImage = new GridBagConstraints();
-				gbc_txtpnCaptureWebcamImage.fill = GridBagConstraints.VERTICAL;
-				gbc_txtpnCaptureWebcamImage.insets = new Insets(0, 0, 5, 5);
-				gbc_txtpnCaptureWebcamImage.gridx = 1;
-				gbc_txtpnCaptureWebcamImage.gridy = 0;
-				layeredPane_8.add(txtpnCaptureWebcamImage, gbc_txtpnCaptureWebcamImage);
-				
-				btnCapture = new JButton("Capture");
-				btnCapture.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) 
-					{
-						ConnectedComponentImage component = new ConnectedComponentImage(filePath);
-						BufferedImage captured = component.webCam();
-						File outputfile = new File("saved.png");
-					    try {
-							ImageIO.write(captured, "png", outputfile);
-						} catch (IOException e2) {
-							e2.printStackTrace();
-						}
-						try {
-							runCapture();
-							panel_8.revalidate();
-							panel_8.repaint();
-						} catch (IOException e1) {
-							e1.printStackTrace();
-						}
-					}
-				});
-				GridBagConstraints gbc_btnCapture = new GridBagConstraints();
-				gbc_btnCapture.insets = new Insets(0, 0, 5, 5);
-				gbc_btnCapture.gridx = 1;
-				gbc_btnCapture.gridy = 1;
-				layeredPane_8.add(btnCapture, gbc_btnCapture);
-				
-				panel_8 = new JPanel();
-				panel_8.setBackground(SystemColor.window);
-				GridBagConstraints gbc_panel_8 = new GridBagConstraints();
-				gbc_panel_8.fill = GridBagConstraints.BOTH;
-				gbc_panel_8.insets = new Insets(0, 0, 5, 5);
-				gbc_panel_8.gridx = 1;
-				gbc_panel_8.gridy = 2;
-				layeredPane_8.add(panel_8, gbc_panel_8);
-				
-				button_1 = new JButton("Pop Out Image");
-				button_1.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) 
-					{
-						Picture pic = new Picture("saved.png");
-						pic.show();
-					}
-				});
-				GridBagConstraints gbc_button_1 = new GridBagConstraints();
-				gbc_button_1.insets = new Insets(0, 0, 0, 5);
-				gbc_button_1.gridx = 1;
-				gbc_button_1.gridy = 3;
-				layeredPane_8.add(button_1, gbc_button_1);
-				
-				layeredPane_6 = new JLayeredPane();
-				tabbedPane.addTab("About", null, layeredPane_6, null);
-				layeredPane_6.setLayout(new GridLayout(1, 0, 0, 0));
-				
-				panel_7 = new JPanel();
-				layeredPane_6.add(panel_7);
-				panel_7.setLayout(new GridLayout(1, 0, 0, 0));
-				
-				txtpnThisProgramCan = new JTextPane();
-				txtpnThisProgramCan.setEditable(false);
-				txtpnThisProgramCan.setBackground(SystemColor.window);
-				txtpnThisProgramCan.setText("NOTE: This file is also contained in the \"About\" tab of the Graphical Interface. \n\nThis program can be used to perform several image analysis processes on any image of your choosing. NOTE: it is still buggy. Images larger than ~4MB may not render correctly. You will also need to use the binary tab to binarise the image before being able to use the random colours process. This is due to the face that the randomise function uses a binarised image to colour each component, and adjusting the slider is then reflected in the random colours image.\n\nExtra work (outside of spec sheet):\n- GUI added\n- Grey Scale method implemented\n- Binary Slider added, allows the user to choose how deep binarisation should go\n- File chooser added, allows the user to choose their own image\n- Added a pdf containing run times for each process and a graph showing its order of growth in time. This pdf is entitled \"trends.pdf\"\nand can be found bundled in the main project folder. \n- added JUnit tests to test each method in the main connected component\n- after each process has been carried out, the user has the option to \"pop-out\" the image. this will allow them to save the updated version, if they so wish.\n- the user may also change their choice of image on the main menu tab, without needing to restart the program.\n- added a runnable jar file, which can be run without needing to import the project into eclipse. \nNOTE: to use this jar java must be installed on the users computer.\n\n\n\n\n\n\n\nStephen Coady\n20064122\nscoady2@gmail.com");
-				panel_7.add(txtpnThisProgramCan);
+		panel_8 = new JPanel();
+		panel_8.setBackground(SystemColor.window);
+		GridBagConstraints gbc_panel_8 = new GridBagConstraints();
+		gbc_panel_8.fill = GridBagConstraints.BOTH;
+		gbc_panel_8.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_8.gridx = 1;
+		gbc_panel_8.gridy = 3;
+		layeredPane_8.add(panel_8, gbc_panel_8);
+
+		button_1 = new JButton("Pop Out Image");
+		button_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) 
+			{
+				Picture pic = new Picture("saved.png");
+				pic.show();
+			}
+		});
+		GridBagConstraints gbc_button_1 = new GridBagConstraints();
+		gbc_button_1.insets = new Insets(0, 0, 0, 5);
+		gbc_button_1.gridx = 1;
+		gbc_button_1.gridy = 4;
+		layeredPane_8.add(button_1, gbc_button_1);
+
+		layeredPane_6 = new JLayeredPane();
+		tabbedPane.addTab("About", null, layeredPane_6, null);
+		layeredPane_6.setLayout(new GridLayout(1, 0, 0, 0));
+
+		panel_7 = new JPanel();
+		layeredPane_6.add(panel_7);
+		panel_7.setLayout(new GridLayout(1, 0, 0, 0));
+
+		txtpnThisProgramCan = new JTextPane();
+		txtpnThisProgramCan.setEditable(false);
+		txtpnThisProgramCan.setBackground(SystemColor.window);
+		txtpnThisProgramCan.setText("NOTE: This file is also contained in the \"About\" tab of the Graphical Interface. \n\nThis program can be used to perform several image analysis processes on any image of your choosing. NOTE: it is still buggy. Images larger than ~4MB may not render correctly. You will also need to use the binary tab to binarise the image before being able to use the random colours process. This is due to the face that the randomise function uses a binarised image to colour each component, and adjusting the slider is then reflected in the random colours image.\n\nExtra work (outside of spec sheet):\n- GUI added\n- Grey Scale method implemented\n- Binary Slider added, allows the user to choose how deep binarisation should go\n- File chooser added, allows the user to choose their own image\n- Added a pdf containing run times for each process and a graph showing its order of growth in time. This pdf is entitled \"trends.pdf\"\nand can be found bundled in the main project folder. \n- added JUnit tests to test each method in the main connected component\n- after each process has been carried out, the user has the option to \"pop-out\" the image. this will allow them to save the updated version, if they so wish.\n- the user may also change their choice of image on the main menu tab, without needing to restart the program.\n- added a runnable jar file, which can be run without needing to import the project into eclipse. \nNOTE: to use this jar java must be installed on the users computer.\n\n\n\n\n\n\n\nStephen Coady\n20064122\nscoady2@gmail.com");
+		panel_7.add(txtpnThisProgramCan);
 	}
 
 	/**
@@ -753,13 +753,13 @@ public class Window {
 	 * 
 	 * @throws IOException
 	 */
-	
+
 	private void chooseFile() throws IOException
 	{
 		this.pic = new Picture(fileChooser.getSelectedFile().getAbsolutePath());
 
 	}
-	
+
 	/**
 	 * runs the binary method and adds the binarised image to the panel using buffered image
 	 * @throws IOException
@@ -804,7 +804,7 @@ public class Window {
 	 * runs the random colour method and adds the image to the panel using buffered image
 	 * @throws IOException
 	 */
-	
+
 	private void runRandom() throws IOException
 	{
 		BufferedImage colourImage = ImageIO.read(new File("colourImage.jpg"));
@@ -840,7 +840,7 @@ public class Window {
 			panel_6.add(boxedLabel);
 		}
 	}
-	
+
 	private void runCapture() throws IOException
 	{
 		BufferedImage capturedImage = ImageIO.read(new File("saved.png"));
